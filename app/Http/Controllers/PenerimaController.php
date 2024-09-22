@@ -54,8 +54,8 @@ class PenerimaController extends Controller
             'nama' => 'required|string|max:255',
             'nik' => 'required|numeric',
             'no_kk' => 'required|numeric',
-            'foto_ktp' => 'file|mimes:jpg,jpeg,png,bmp|max:2048',
-            'foto_kk' => 'file|mimes:jpg,jpeg,png,bmp|max:2048',
+            // 'foto_ktp' => 'required|file|mimes:jpg,jpeg,png,bmp|max:2048',
+            // 'foto_kk' => 'required|file|mimes:jpg,jpeg,png,bmp|max:2048',
             'usia' => 'required|numeric|min:25',
             'gender' => 'required|in:Laki-laki,Perempuan',
             'provinsi' => 'required|string',
@@ -80,8 +80,8 @@ class PenerimaController extends Controller
             $penerima->nama = $request->nama;
             $penerima->nik = $request->nik;
             $penerima->no_kk = $request->no_kk;
-            $penerima->foto_ktp = $ktpPhotoPath;
-            $penerima->foto_kk = $kkPhotoPath;
+            // $penerima->foto_ktp = $ktpPhotoPath;
+            // $penerima->foto_kk = $kkPhotoPath;
             $penerima->usia = $request->usia;
             $penerima->gender = $request->gender;
             $penerima->provinsi = $request->provinsi;
@@ -96,7 +96,7 @@ class PenerimaController extends Controller
             $penerima->alasan = $request->alasan;
             $penerima->save();
     
-            return redirect()->route('penerima.preview', ['id' => $penerima->id])
+            return redirect()->route('penerima.create', ['id' => $penerima->id])
                              ->with('success', 'Data berhasil disimpan.');
         } catch (\Exception $e) {
             return back()->withErrors(['error' => 'Gagal menyimpan data. Silakan coba lagi.']);

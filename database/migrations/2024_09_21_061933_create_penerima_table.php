@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nik');
             $table->string('no_kk');
-            $table->string('foto_ktp');
-            $table->string('foto_kk');
+            // $table->string('foto_ktp');
+            // $table->string('foto_kk');
             $table->integer('usia');
             $table->enum('gender', ['Laki-laki', 'Perempuan']);
             $table->string('provinsi');
@@ -27,8 +27,8 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('rt');
             $table->string('rw');
-            $table->decimal('penghasilan_sebelum', 10, 2);
-            $table->decimal('penghasilan sesudah', 10, 2);
+            $table->integer('penghasilan_sebelum');
+            $table->integer('penghasilan_sesudah');
             $table->enum('alasan', ['Kehilangan pekerjaan', 'Kepala keluarga', 'Fakir/miskin', 'Lainnya']);
             $table->timestamps();
         });

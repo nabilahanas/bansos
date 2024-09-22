@@ -9,7 +9,7 @@ class Penerima extends Model
 {
     use HasFactory;
 
-    protected $table = 'penerima';  // Nama tabel
+    protected $table = 'penerima';
 
     protected $fillable = [
         'nama',

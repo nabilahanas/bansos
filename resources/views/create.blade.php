@@ -44,17 +44,19 @@
                         <p class="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive
                             mail.</p>
 
-                        <!-- Nama -->
                         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <!-- Nama -->
                             <div class="col-span-full">
-                                <label for="nama" class="block text-gray-700 text-sm font-bold mb-2">Nama
-                                    Lengkap:</label>
-                                <input type="text" id="nama" name="nama" value="{{ old('nama') }}"
-                                    class="shadow appearance-none border {{ $errors->has('nama') ? 'border-red-500' : 'border-gray-300' }} rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    required>
-                                @if ($errors->has('nama'))
-                                    <p class="text-red-500 text-xs italic">{{ $errors->first('nama') }}</p>
-                                @endif
+                                <label for="nama" class="block text-sm font-medium leading-6 text-gray-900">Nama
+                                    Lengkap</label>
+                                <div class="mt-2">
+                                    <input type="text" id="nama" name="nama"
+                                        class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        required>
+                                    @if ($errors->has('nama'))
+                                        <p class="text-red-500 text-xs italic">{{ $errors->first('nama') }}</p>
+                                    @endif
+                                </div>
                             </div>
 
                             <!-- NIK -->
@@ -62,7 +64,7 @@
                                 <label for="nik"
                                     class="block text-sm font-medium leading-6 text-gray-900">NIK</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nik" id="nik"
+                                    <input type="number" name="nik" id="nik"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         required>
                                 </div>
@@ -73,72 +75,40 @@
                                 <label for="no_kk" class="block text-sm font-medium leading-6 text-gray-900">No.
                                     KK</label>
                                 <div class="mt-2">
-                                    <input type="text" name="no_kk" id="no_kk" autocomplete="no_kk"
+                                    <input type="number" name="no_kk" id="no_kk"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         required>
                                 </div>
                             </div>
 
-                            <!-- Foto KTP -->
-                            <div class="col-span-full">
+                            {{-- <!-- Foto KTP -->
+                            <div class="sm:col-span-3">
                                 <label for="foto_ktp" class="block text-sm font-medium leading-6 text-gray-900">Foto
                                     KTP</label>
-                                <div
-                                    class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                                    <div class="text-center">
-                                        <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                                            <label for="file-upload"
-                                                class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                                                <span>Upload a file</span>
-                                                <input id="file-upload" name="foto_ktp" type="file" class="sr-only"
-                                                    accept=".jpg,.jpeg,.png,.bmp">
-                                            </label>
-                                            <p class="pl-1">or drag and drop</p>
-                                        </div>
-                                        <p class="text-xs leading-5 text-gray-600">JPG/JPEG/PNG/BMP up to 2MB</p>
-                                    </div>
+                                <div class="mt-2">
+                                    <input type="file" id="foto_ktp" name="foto_ktp" accept=".jpg,.jpeg,.png,.bmp"
+                                        required
+                                        class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
 
                             <!-- Foto KK -->
-                            <div class="col-span-full">
+                            <div class="sm:col-span-3">
                                 <label for="foto_kk" class="block text-sm font-medium leading-6 text-gray-900">Foto
                                     KK</label>
-                                <div
-                                    class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                                    <div class="text-center">
-                                        <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                                            <label for="file-upload"
-                                                class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                                                <span>Upload a file</span>
-                                                <input id="file-upload" name="foto_kk" type="file" class="sr-only"
-                                                    accept=".jpg,.jpeg,.png,.bmp">
-                                            </label>
-                                            <p class="pl-1">or drag and drop</p>
-                                        </div>
-                                        <p class="text-xs leading-5 text-gray-600">JPG/JPEG/PNG/BMP up to 2MB</p>
-                                    </div>
+                                <div class="mt-2">
+                                    <input type="file" id="foto_kk" name="foto_kk" accept=".jpg,.jpeg,.png,.bmp"
+                                        required
+                                        class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <!-- Usia -->
                             <div class="sm:col-span-3">
                                 <label for="usia"
                                     class="block text-sm font-medium leading-6 text-gray-900">Usia</label>
                                 <div class="mt-2">
-                                    <input type="text" name="usia" id="usia"
+                                    <input type="number" name="usia" id="usia" min="25"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         required>
                                     <p class="text-red-500 text-xs italic">Wajib berusia 25 tahun ke atas!</p>
@@ -154,8 +124,8 @@
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                         required>
                                         <option value="">Pilih Jenis Kelamin</option>
-                                        <option>Laki-laki</option>
-                                        <option>Perempuan</option>
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
                                     </select>
                                 </div>
                             </div>
@@ -218,15 +188,15 @@
                                     class="block text-sm font-medium leading-6 text-gray-900">Kelurahan</label>
                                 <div class="mt-2">
                                     <select name="kelurahan" id="kelurahan"
-                                    class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                                    required>
-                                    <option value="">Pilih Kelurahan</option>
-                                    @if (!empty($kelurahan))
-                                        @foreach ($kelurahan as $item)
-                                            <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
+                                        class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                        required>
+                                        <option value="">Pilih Kelurahan</option>
+                                        @if (!empty($kelurahan))
+                                            @foreach ($kelurahan as $item)
+                                                <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
                                 </div>
                             </div>
 
@@ -235,7 +205,7 @@
                                 <label for="alamat"
                                     class="block text-sm font-medium leading-6 text-gray-900">Alamat</label>
                                 <div class="mt-2">
-                                    <input type="text" name="alamat" id="alamat" autocomplete="alamat"
+                                    <input type="text" name="alamat" id="alamat"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         required>
                                 </div>
@@ -246,7 +216,7 @@
                                 <label for="rt"
                                     class="block text-sm font-medium leading-6 text-gray-900">RT</label>
                                 <div class="mt-2">
-                                    <input type="text" name="rt" id="rt"
+                                    <input type="number" name="rt" id="rt" min="0"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         required>
                                 </div>
@@ -257,7 +227,7 @@
                                 <label for="rw"
                                     class="block text-sm font-medium leading-6 text-gray-900">RW</label>
                                 <div class="mt-2">
-                                    <input type="text" name="rw" id="rw"
+                                    <input type="number" name="rw" id="rw" min="0"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         required>
                                 </div>
@@ -267,28 +237,31 @@
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <!-- Penghasilan Sebelum Pandemi -->
-                        <div class="col-span-full">
+                        <div class="sm:col-span-3"">
                             <label for="penghasilan_sebelum"
                                 class="block text-sm font-medium leading-6 text-gray-900">Penghasilan Sebelum
                                 Pandemi</label>
                             <div class="mt-2">
-                                <input type="text" name="penghasilan_sebelum" id="penghasilan_sebelum"
-                                    autocomplete="alamat"
+                                <input type="number" name="penghasilan_sebelum" id="penghasilan_sebelum"
+                                    min="0"
                                     class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     required>
+                                <p class="text-gray-500 text-xs">Contoh: 1000000</p>
                             </div>
                         </div>
 
                         <!-- Penghasilan Setelah Pandemi -->
-                        <div class="col-span-full">
+                        <div class="sm:col-span-3">
                             <label for="penghasilan_sesudah"
                                 class="block text-sm font-medium leading-6 text-gray-900">Penghasilan Sesudah
                                 Pandemi</label>
                             <div class="mt-2">
-                                <input type="text" name="penghasilan_sesudah" id="penghasilan_sesudah"
-                                    autocomplete="alamat"
+                                <input type="number" name="penghasilan_sesudah" id="penghasilan_sesudah"
+                                    min="0"
                                     class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     required>
+                                <p class="text-gray-500 text-xs">Contoh: 1000000</p>
+
                             </div>
                         </div>
 
@@ -300,13 +273,19 @@
                                 <select id="alasan" name="alasan"
                                     class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     required>
-                                    <option></option>
-                                    <option>Kehilangan pekerjaan</option>
-                                    <option>Kepala keluarga</option>
-                                    <option>Tergolong fakir/miskin</option>
-                                    <option>Lainnya</option>
+                                    <option value="">Pilih Alasan</option>
+                                    <option value="Kehilangan pekerjaan">Kehilangan pekerjaan</option>
+                                    <option value="Kepala keluarga">Kepala keluarga</option>
+                                    <option value="Tergolong fakir/miskin">Tergolong fakir/miskin</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="col-span-full" id="input-alasan" style="display: none;">
+                            <label for="alasan_lain" class="block text-sm font-medium leading-6 text-gray-900">Alasan
+                                Lainnya</label>
+                            <input type="text" id="alasan" name="alasan_lain"
+                                class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                 </div>
@@ -319,7 +298,7 @@
                                     <div class="flex h-6 items-center">
                                         <input id="comments" name="comments" type="checkbox"
                                             class="h-4 w-4 rounded border-gray-300 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                                            {{ old('comments') ? 'checked' : '' }} required>
+                                            required>
                                     </div>
                                     <div class="text-sm leading-6">
                                         <p class="text-gray-900">Saya menyatakan bahwa data yang diisikan adalah benar
@@ -327,13 +306,11 @@
                                             tersebut.</p>
                                     </div>
                                 </div>
-                                @if ($errors->has('comments'))
-                                    <p class="text-red-500 text-xs italic">{{ $errors->first('comments') }}</p>
-                                @endif
                             </div>
                         </fieldset>
                     </div>
                 </div>
+
 
                 <div class="mt-6 flex items-center justify-end gap-x-6">
                     <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
@@ -355,7 +332,8 @@
                 var kotaSelect = document.getElementById('kota');
                 kotaSelect.innerHTML = '<option value="">Pilih Kota</option>';
                 kota.forEach(function(kotaItem) {
-                    kotaSelect.innerHTML += `<option value="${kotaItem.id}">${kotaItem.name}</option>`;
+                    kotaSelect.innerHTML +=
+                        `<option value="${kotaItem.id}">${kotaItem.name}</option>`;
                 });
                 kotaSelect.disabled = false;
             });
@@ -370,26 +348,42 @@
                 var kecamatanSelect = document.getElementById('kecamatan');
                 kecamatanSelect.innerHTML = '<option value="">Pilih Kecamatan</option>';
                 kecamatan.forEach(function(kecamatanItem) {
-                    kecamatanSelect.innerHTML += `<option value="${kecamatanItem.id}">${kecamatanItem.name}</option>`;
+                    kecamatanSelect.innerHTML +=
+                        `<option value="${kecamatanItem.id}">${kecamatanItem.name}</option>`;
                 });
                 kecamatanSelect.disabled = false;
             });
     });
 
     document.getElementById('kecamatan').addEventListener('change', function() {
-    var regencyId = this.value;
+        var regencyId = this.value;
 
-    fetch(`/get-kelurahan/${regencyId}`)
-        .then(response => response.json())
-        .then(kelurahan => {
-            var kelurahanSelect = document.getElementById('kelurahan');
-            kelurahanSelect.innerHTML = '<option value="">Pilih Kelurahan</option>';
-            kelurahan.forEach(function(kelurahanItem) {
-                kelurahanSelect.innerHTML += `<option value="${kelurahanItem.id}">${kelurahanItem.name}</option>`;
-            });
-            kelurahanSelect.disabled = false;
-        })
-});
+        fetch(`/get-kelurahan/${regencyId}`)
+            .then(response => response.json())
+            .then(kelurahan => {
+                var kelurahanSelect = document.getElementById('kelurahan');
+                kelurahanSelect.innerHTML = '<option value="">Pilih Kelurahan</option>';
+                kelurahan.forEach(function(kelurahanItem) {
+                    kelurahanSelect.innerHTML +=
+                        `<option value="${kelurahanItem.id}">${kelurahanItem.name}</option>`;
+                });
+                kelurahanSelect.disabled = false;
+            })
+    });
+
+    document.getElementById('alasan').addEventListener('change', function() {
+        var inputAlasan = document.getElementById('input-alasan');
+        var alasanLainInput = document.getElementById('alasan-lain');
+
+        if (this.value === 'Lainnya') {
+            inputAlasan.style.display = 'block';
+            alasanLainInput.setAttribute('required', 'required');
+        } else {
+            inputAlasan.style.display = 'none';
+            alasanLainInput.removeAttribute('required');
+            alasanLainInput.value = '';
+        }
+    });
 </script>
 
 </html>
