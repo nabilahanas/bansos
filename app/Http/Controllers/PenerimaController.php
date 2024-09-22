@@ -16,21 +16,40 @@ class PenerimaController extends Controller
         $this->wilayahService = $wilayahService;
     }
 
-    // Show form for inputting recipient data
     public function create()
     {
+        // Mengambil semua data provinsi
         $provinsi = $this->wilayahService->getProvinsi();
-        $kota = $this->wilayahService->getKota($provinsi[0]['id']);
-        $kecamatan = $this->wilayahService->getKecamatan($kota[0]['id']);
-        $kelurahan = $this->wilayahService->getKelurahan($kecamatan[0]['id']);    
-        return view('create', compact('provinsi', 'kota', 'kecamatan', 'kelurahan'));
+        
+        // Kirim data provinsi saja ke view
+        return view('create', compact('provinsi'));
     }
     
+    // Method untuk mendapatkan data kota berdasarkan id provinsi
+    public function getKota($provinceId)
+    {
+        $kota = $this->wilayahService->getKota($provinceId);
+        return response()->json($kota);
+    }
+    
+    // Method untuk mendapatkan data kecamatan berdasarkan id kota
+    public function getKecamatan($regencyId)
+    {
+        $kecamatan = $this->wilayahService->getKecamatan($regencyId);
+        return response()->json($kecamatan);
+    }
 
-    // Store the submitted form data
+    // Method untuk mendapatkan data kelurahan berdasarkan id kecamatan
+    public function getKelurahan($districtId)
+    {
+        $kelurahan = $this->wilayahService->getKelurahan($districtId);
+        return response()->json($kelurahan);
+    }
+    
+    // Menyimpan data penerima
     public function store(Request $request)
     {
-        // Validate the input
+        // Validasi input
         $validatedData = $request->validate([
             'nama' => 'required|string|max:255',
             'nik' => 'required|numeric',
@@ -53,11 +72,10 @@ class PenerimaController extends Controller
         ]);
     
         try {
-            // // Handle file uploads for KTP and KK
             // $ktpPhotoPath = $request->file('foto_ktp')->store('foto_ktps', 'public');
             // $kkPhotoPath = $request->file('foto_kk')->store('foto_kks', 'public');
     
-            // Save the data to the database
+            // Menyimpan data ke database
             $penerima = new Penerima();
             $penerima->nama = $request->nama;
             $penerima->nik = $request->nik;
@@ -78,17 +96,15 @@ class PenerimaController extends Controller
             $penerima->alasan = $request->alasan;
             $penerima->save();
     
-            // Flash success message
             return redirect()->route('penerima.preview', ['id' => $penerima->id])
                              ->with('success', 'Data berhasil disimpan.');
         } catch (\Exception $e) {
-            // Flash error message
             return back()->withErrors(['error' => 'Gagal menyimpan data. Silakan coba lagi.']);
         }
     }
     
 
-    // Show a preview of the submitted data
+    // Menampilkan data penerima
     public function preview($id)
     {
         $penerima = Penerima::findOrFail($id);

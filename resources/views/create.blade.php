@@ -184,10 +184,12 @@
                                     <select name="kota" id="kota"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                         required>
-                                        <option value="">Pilih Kota/Kabupaten</option>
-                                        @foreach ($kota as $item)
-                                            <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
-                                        @endforeach
+                                        <option value="">Pilih Kota</option>
+                                        @if (!empty($kota))
+                                            @foreach ($kota as $item)
+                                                <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
                             </div>
@@ -197,9 +199,16 @@
                                 <label for="kecamatan"
                                     class="block text-sm font-medium leading-6 text-gray-900">Kecamatan</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kecamatan" id="kecamatan"
-                                        class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    <select name="kecamatan" id="kecamatan"
+                                        class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                         required>
+                                        <option value="">Pilih Kecamatan</option>
+                                        @if (!empty($kecamatan))
+                                            @foreach ($kecamatan as $item)
+                                                <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
                                 </div>
                             </div>
 
@@ -208,9 +217,16 @@
                                 <label for="kelurahan"
                                     class="block text-sm font-medium leading-6 text-gray-900">Kelurahan</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kelurahan" id="kelurahan"
-                                        class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                        required>
+                                    <select name="kelurahan" id="kelurahan"
+                                    class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    required>
+                                    <option value="">Pilih Kelurahan</option>
+                                    @if (!empty($kelurahan))
+                                        @foreach ($kelurahan as $item)
+                                            <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
                                 </div>
                             </div>
 
@@ -328,5 +344,52 @@
         </div>
     </div>
 </body>
+
+<script>
+    document.getElementById('provinsi').addEventListener('change', function() {
+        var provinceId = this.value;
+
+        fetch(`/get-kota/${provinceId}`)
+            .then(response => response.json())
+            .then(kota => {
+                var kotaSelect = document.getElementById('kota');
+                kotaSelect.innerHTML = '<option value="">Pilih Kota</option>';
+                kota.forEach(function(kotaItem) {
+                    kotaSelect.innerHTML += `<option value="${kotaItem.id}">${kotaItem.name}</option>`;
+                });
+                kotaSelect.disabled = false;
+            });
+    });
+
+    document.getElementById('kota').addEventListener('change', function() {
+        var cityId = this.value;
+
+        fetch(`/get-kecamatan/${cityId}`)
+            .then(response => response.json())
+            .then(kecamatan => {
+                var kecamatanSelect = document.getElementById('kecamatan');
+                kecamatanSelect.innerHTML = '<option value="">Pilih Kecamatan</option>';
+                kecamatan.forEach(function(kecamatanItem) {
+                    kecamatanSelect.innerHTML += `<option value="${kecamatanItem.id}">${kecamatanItem.name}</option>`;
+                });
+                kecamatanSelect.disabled = false;
+            });
+    });
+
+    document.getElementById('kecamatan').addEventListener('change', function() {
+    var regencyId = this.value;
+
+    fetch(`/get-kelurahan/${regencyId}`)
+        .then(response => response.json())
+        .then(kelurahan => {
+            var kelurahanSelect = document.getElementById('kelurahan');
+            kelurahanSelect.innerHTML = '<option value="">Pilih Kelurahan</option>';
+            kelurahan.forEach(function(kelurahanItem) {
+                kelurahanSelect.innerHTML += `<option value="${kelurahanItem.id}">${kelurahanItem.name}</option>`;
+            });
+            kelurahanSelect.disabled = false;
+        })
+});
+</script>
 
 </html>
