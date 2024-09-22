@@ -14,7 +14,7 @@
 
 <body class="bg-gray-200 p-4">
     <div class="lg:w-2/4 mx-auto py-8 px-6 bg-white rounded-xl">
-        <h1 class="font-bold text-3xl text-center mb-8">Pendaftaran Penerima Bantuan Sosial</h1>
+        <h1 class="font-bold text-3xl text-center mt-4 mb-4">Pendaftaran Penerima Bantuan Sosial</h1>
 
         @if (session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
@@ -35,15 +35,11 @@
             </div>
         @endif
 
-        <div class="mb-6">
+        <div class="container mx-auto mt-2 p-4">
             <form method="POST" action="{{ route('penerima.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
-                        <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
-                        <p class="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive
-                            mail.</p>
-
                         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <!-- Nama -->
                             <div class="col-span-full">
@@ -313,7 +309,7 @@
 
 
                 <div class="mt-6 flex items-center justify-end gap-x-6">
-                    <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+                    <button type="reset" class="text-sm font-semibold leading-6 text-gray-900">Reset</button>
                     <button type="submit"
                         class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
                 </div>

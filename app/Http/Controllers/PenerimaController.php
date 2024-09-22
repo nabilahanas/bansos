@@ -96,13 +96,12 @@ class PenerimaController extends Controller
             $penerima->alasan = $request->alasan;
             $penerima->save();
     
-            return redirect()->route('penerima.create', ['id' => $penerima->id])
-                             ->with('success', 'Data berhasil disimpan.');
+        return redirect()->route('penerima.preview', ['id' => $penerima->id])
+                         ->with('success', 'Data berhasil disimpan.');
         } catch (\Exception $e) {
             return back()->withErrors(['error' => 'Gagal menyimpan data. Silakan coba lagi.']);
         }
     }
-    
 
     // Menampilkan data penerima
     public function preview($id)

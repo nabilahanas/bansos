@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nik');
             $table->string('no_kk');
-            // $table->string('foto_ktp');
-            // $table->string('foto_kk');
+            $table->string('foto_ktp');
+            $table->string('foto_kk');
             $table->integer('usia');
             $table->enum('gender', ['Laki-laki', 'Perempuan']);
             $table->string('provinsi');
