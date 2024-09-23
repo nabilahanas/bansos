@@ -15,27 +15,18 @@
 <body class="bg-gray-200 p-4">
     <div class="lg:w-2/4 mx-auto py-8 px-6 bg-white rounded-xl">
         <h1 class="font-bold text-3xl text-center mt-4 mb-4">Pendaftaran Penerima Bantuan Sosial</h1>
-
-        @if (session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-                <strong class="font-bold">Berhasil!</strong>
-                <span class="block sm:inline">{{ session('success') }}</span>
-            </div>
-        @endif
-
-        @if ($errors->any())
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                <strong class="font-bold">Error!</strong>
-                <span class="block sm:inline">Ada masalah dengan input Anda.</span>
-                <ul class="mt-2 text-sm text-red-700">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <div class="container mx-auto mt-2 p-4">
+            @if ($errors->any())
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <strong class="font-bold">Gagal!</strong>
+                    <ul class="mt-2 text-sm text-red-700">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <form method="POST" action="{{ route('penerima.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="space-y-12">
@@ -77,7 +68,7 @@
                                 </div>
                             </div>
 
-                            {{-- <!-- Foto KTP -->
+                            <!-- Foto KTP -->
                             <div class="sm:col-span-3">
                                 <label for="foto_ktp" class="block text-sm font-medium leading-6 text-gray-900">Foto
                                     KTP</label>
@@ -85,6 +76,8 @@
                                     <input type="file" id="foto_ktp" name="foto_ktp" accept=".jpg,.jpeg,.png,.bmp"
                                         required
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <p class="text-red-500 text-xs italic" id="error-message">Format foto: .jpg, .jpeg,
+                                        .png, .bmp dengan maksimal 2MB!</p>
                                 </div>
                             </div>
 
@@ -96,8 +89,10 @@
                                     <input type="file" id="foto_kk" name="foto_kk" accept=".jpg,.jpeg,.png,.bmp"
                                         required
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <p class="text-red-500 text-xs italic" id="error-message">Format foto: .jpg, .jpeg,
+                                        .png, .bmp dengan maksimal 2MB!</p>
                                 </div>
-                            </div> --}}
+                            </div>
 
                             <!-- Usia -->
                             <div class="sm:col-span-3">
@@ -107,7 +102,8 @@
                                     <input type="number" name="usia" id="usia" min="25"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         required>
-                                    <p class="text-red-500 text-xs italic">Wajib berusia 25 tahun ke atas!</p>
+                                    <p class="text-red-500 text-xs italic" id="error-message">Wajib berusia 25 tahun ke
+                                        atas!</p>
                                 </div>
                             </div>
 
@@ -286,6 +282,7 @@
                     </div>
                 </div>
 
+                <!-- Persetujuan -->
                 <div class="border-b border-gray-900/10 pb-12">
                     <div class="mt-10 space-y-10">
                         <fieldset>
@@ -307,7 +304,7 @@
                     </div>
                 </div>
 
-
+                <!-- Submit -->
                 <div class="mt-6 flex items-center justify-end gap-x-6">
                     <button type="reset" class="text-sm font-semibold leading-6 text-gray-900">Reset</button>
                     <button type="submit"

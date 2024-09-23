@@ -23,19 +23,7 @@
             </div>
         @endif
 
-        @if ($errors->any())
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                <strong class="font-bold">Error!</strong>
-                <span class="block sm:inline">Ada masalah dengan input Anda.</span>
-                <ul class="mt-2 text-sm text-red-700">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
-        <div class="container mx-auto mt-10 p-6">
+        <div class="container mx-auto mt-6 p-6">
             <table class="table-auto w-full text-left text-sm">
                 <tbody>
                     <tr class="border-b">
@@ -49,6 +37,22 @@
                     <tr class="border-b">
                         <th class="py-3 px-4 font-bold text-gray-700">No KK:</th>
                         <td class="py-3 px-4">{{ $penerima->no_kk }}</td>
+                    </tr>
+                    <tr class="border-b">
+                        <th class="py-3 px-4 font-bold text-gray-700">Foto KTP:</th>
+                        <td class="py-3 px-4">
+                            <img src="{{ asset('storage/' . $penerima->foto_ktp) }}" alt="Foto KTP"
+                                class="w-32 h-32 object-cover cursor-pointer"
+                                onclick="openModal('{{ asset('storage/' . $penerima->foto_ktp) }}')">
+                        </td>
+                    </tr>
+                    <tr class="border-b">
+                        <th class="py-3 px-4 font-bold text-gray-700">Foto KK:</th>
+                        <td class="py-3 px-4">
+                            <img src="{{ asset('storage/' . $penerima->foto_kk) }}" alt="Foto KK"
+                                class="w-32 h-32 object-cover cursor-pointer"
+                                onclick="openModal('{{ asset('storage/' . $penerima->foto_kk) }}')">
+                        </td>
                     </tr>
                     <tr class="border-b">
                         <th class="py-3 px-4 font-bold text-gray-700">Usia:</th>
@@ -103,10 +107,38 @@
                 </tbody>
             </table>
 
+            <!-- Modal -->
+            <div id="imageModal" class="fixed z-10 inset-0 hidden overflow-y-auto">
+                <div class="flex items-center justify-center min-h-screen">
+                    <div class="fixed inset-0 bg-black bg-opacity-75 transition-opacity"></div>
+                    <div
+                        class="bg-white overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full">
+                        <img id="modalImage" src="" class="w-full h-auto">
+                        <div class="p-4 text-right">
+                            <button onclick="closeModal()"
+                                class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-700">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="mt-6 flex items-center justify-end gap-x-6">
                 <a href="{{ route('penerima.create') }}"
-                class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Back</a>
+                    class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Back</a>
             </div>
         </div>
     </div>
 </body>
+
+<script>
+    function openModal(imageUrl) {
+        document.getElementById('modalImage').src = imageUrl;
+        document.getElementById('imageModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('imageModal').classList.add('hidden');
+    }
+</script>
+
+</html>

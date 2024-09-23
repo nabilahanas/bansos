@@ -54,8 +54,8 @@ class PenerimaController extends Controller
             'nama' => 'required|string|max:255',
             'nik' => 'required|numeric',
             'no_kk' => 'required|numeric',
-            // 'foto_ktp' => 'required|file|mimes:jpg,jpeg,png,bmp|max:2048',
-            // 'foto_kk' => 'required|file|mimes:jpg,jpeg,png,bmp|max:2048',
+            'foto_ktp' => 'required|file|mimes:jpg,jpeg,png,bmp|max:2048',
+            'foto_kk' => 'required|file|mimes:jpg,jpeg,png,bmp|max:2048',
             'usia' => 'required|numeric|min:25',
             'gender' => 'required|in:Laki-laki,Perempuan',
             'provinsi' => 'required|string',
@@ -71,17 +71,14 @@ class PenerimaController extends Controller
             'comments' => 'required|accepted',
         ]);
     
-        try {
-            // $ktpPhotoPath = $request->file('foto_ktp')->store('foto_ktps', 'public');
-            // $kkPhotoPath = $request->file('foto_kk')->store('foto_kks', 'public');
-    
+        try { 
             // Menyimpan data ke database
             $penerima = new Penerima();
             $penerima->nama = $request->nama;
             $penerima->nik = $request->nik;
             $penerima->no_kk = $request->no_kk;
-            // $penerima->foto_ktp = $ktpPhotoPath;
-            // $penerima->foto_kk = $kkPhotoPath;
+            $penerima->foto_ktp = $request->file('foto_ktp')->store('foto_ktp', 'public');
+            $penerima->foto_kk = $request->file('foto_kk')->store('foto_kk', 'public');
             $penerima->usia = $request->usia;
             $penerima->gender = $request->gender;
             $penerima->provinsi = $request->provinsi;
