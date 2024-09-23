@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('penerima', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('nik');
-            $table->string('no_kk');
+            $table->string('nik', 20);
+            $table->string('no_kk', 20);
             $table->string('foto_ktp');
             $table->string('foto_kk');
             $table->integer('usia');
@@ -25,11 +25,11 @@ return new class extends Migration
             $table->string('kecamatan');
             $table->string('kelurahan');
             $table->string('alamat');
-            $table->string('rt');
-            $table->string('rw');
+            $table->string('rt', 5);
+            $table->string('rw', 5);
             $table->integer('penghasilan_sebelum');
             $table->integer('penghasilan_sesudah');
-            $table->enum('alasan', ['Kehilangan pekerjaan', 'Kepala keluarga', 'Fakir/miskin', 'Lainnya']);
+            $table->string('alasan');
             $table->timestamps();
         });
         

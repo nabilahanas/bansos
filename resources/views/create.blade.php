@@ -35,7 +35,7 @@
                             <!-- Nama -->
                             <div class="col-span-full">
                                 <label for="nama" class="block text-sm font-medium leading-6 text-gray-900">Nama
-                                    Lengkap</label>
+                                    Lengkap<span class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <input type="text" id="nama" name="nama"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -48,8 +48,8 @@
 
                             <!-- NIK -->
                             <div class="sm:col-span-3">
-                                <label for="nik"
-                                    class="block text-sm font-medium leading-6 text-gray-900">NIK</label>
+                                <label for="nik" class="block text-sm font-medium leading-6 text-gray-900">NIK<span
+                                        class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <input type="number" name="nik" id="nik"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -60,7 +60,7 @@
                             <!-- No KK -->
                             <div class="sm:col-span-3">
                                 <label for="no_kk" class="block text-sm font-medium leading-6 text-gray-900">No.
-                                    KK</label>
+                                    KK<span class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <input type="number" name="no_kk" id="no_kk"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -71,7 +71,7 @@
                             <!-- Foto KTP -->
                             <div class="sm:col-span-3">
                                 <label for="foto_ktp" class="block text-sm font-medium leading-6 text-gray-900">Foto
-                                    KTP</label>
+                                    KTP<span class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <input type="file" id="foto_ktp" name="foto_ktp" accept=".jpg,.jpeg,.png,.bmp"
                                         required
@@ -84,7 +84,7 @@
                             <!-- Foto KK -->
                             <div class="sm:col-span-3">
                                 <label for="foto_kk" class="block text-sm font-medium leading-6 text-gray-900">Foto
-                                    KK</label>
+                                    KK<span class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <input type="file" id="foto_kk" name="foto_kk" accept=".jpg,.jpeg,.png,.bmp"
                                         required
@@ -97,7 +97,8 @@
                             <!-- Usia -->
                             <div class="sm:col-span-3">
                                 <label for="usia"
-                                    class="block text-sm font-medium leading-6 text-gray-900">Usia</label>
+                                    class="block text-sm font-medium leading-6 text-gray-900">Usia<span
+                                        class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <input type="number" name="usia" id="usia" min="25"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -110,7 +111,7 @@
                             <!-- Jenis Kelamin -->
                             <div class="sm:col-span-3">
                                 <label for="gender" class="block text-sm font-medium leading-6 text-gray-900">Jenis
-                                    Kelamin</label>
+                                    Kelamin<span class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <select id="gender" name="gender"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
@@ -125,7 +126,8 @@
                             <!-- Provinsi -->
                             <div class="sm:col-span-3">
                                 <label for="provinsi"
-                                    class="block text-sm font-medium leading-6 text-gray-900">Provinsi</label>
+                                    class="block text-sm font-medium leading-6 text-gray-900">Provinsi<span
+                                        class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <select name="provinsi" id="provinsi"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
@@ -141,7 +143,8 @@
                             <!-- Kota -->
                             <div class="sm:col-span-3">
                                 <label for="kota"
-                                    class="block text-sm font-medium leading-6 text-gray-900">Kota/Kabupaten</label>
+                                    class="block text-sm font-medium leading-6 text-gray-900">Kota/Kabupaten<span
+                                        class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <select name="kota" id="kota"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
@@ -159,7 +162,8 @@
                             <!-- Kecamatan -->
                             <div class="sm:col-span-3 sm:col-start-1">
                                 <label for="kecamatan"
-                                    class="block text-sm font-medium leading-6 text-gray-900">Kecamatan</label>
+                                    class="block text-sm font-medium leading-6 text-gray-900">Kecamatan<span
+                                        class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <select name="kecamatan" id="kecamatan"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
@@ -177,7 +181,8 @@
                             <!-- Kelurahan -->
                             <div class="sm:col-span-3">
                                 <label for="kelurahan"
-                                    class="block text-sm font-medium leading-6 text-gray-900">Kelurahan</label>
+                                    class="block text-sm font-medium leading-6 text-gray-900">Kelurahan<span
+                                        class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <select name="kelurahan" id="kelurahan"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
@@ -195,7 +200,8 @@
                             <!-- Alamat -->
                             <div class="col-span-full">
                                 <label for="alamat"
-                                    class="block text-sm font-medium leading-6 text-gray-900">Alamat</label>
+                                    class="block text-sm font-medium leading-6 text-gray-900">Alamat<span
+                                        class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <input type="text" name="alamat" id="alamat"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -206,7 +212,8 @@
                             <!-- RT -->
                             <div class="sm:col-span-3">
                                 <label for="rt"
-                                    class="block text-sm font-medium leading-6 text-gray-900">RT</label>
+                                    class="block text-sm font-medium leading-6 text-gray-900">RT<span
+                                        class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <input type="number" name="rt" id="rt" min="0"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -217,7 +224,8 @@
                             <!-- RW -->
                             <div class="sm:col-span-3">
                                 <label for="rw"
-                                    class="block text-sm font-medium leading-6 text-gray-900">RW</label>
+                                    class="block text-sm font-medium leading-6 text-gray-900">RW<span
+                                        class="text-red-500"> *</span></label>
                                 <div class="mt-2">
                                     <input type="number" name="rw" id="rw" min="0"
                                         class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -232,7 +240,7 @@
                         <div class="sm:col-span-3"">
                             <label for="penghasilan_sebelum"
                                 class="block text-sm font-medium leading-6 text-gray-900">Penghasilan Sebelum
-                                Pandemi</label>
+                                Pandemi<span class="text-red-500"> *</span></label>
                             <div class="mt-2">
                                 <input type="number" name="penghasilan_sebelum" id="penghasilan_sebelum"
                                     min="0"
@@ -246,7 +254,7 @@
                         <div class="sm:col-span-3">
                             <label for="penghasilan_sesudah"
                                 class="block text-sm font-medium leading-6 text-gray-900">Penghasilan Sesudah
-                                Pandemi</label>
+                                Pandemi<span class="text-red-500"> *</span></label>
                             <div class="mt-2">
                                 <input type="number" name="penghasilan_sesudah" id="penghasilan_sesudah"
                                     min="0"
@@ -260,7 +268,8 @@
                         <!-- Alasan -->
                         <div class="col-span-full">
                             <label for="alasan"
-                                class="block text-sm font-medium leading-6 text-gray-900">Alasan</label>
+                                class="block text-sm font-medium leading-6 text-gray-900">Alasan<span
+                                    class="text-red-500"> *</span></label>
                             <div class="mt-2">
                                 <select id="alasan" name="alasan"
                                     class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -275,7 +284,7 @@
                         </div>
                         <div class="col-span-full" id="input-alasan" style="display: none;">
                             <label for="alasan_lain" class="block text-sm font-medium leading-6 text-gray-900">Alasan
-                                Lainnya</label>
+                                Lainnya<span class="text-red-500"> *</span></label>
                             <input type="text" id="alasan" name="alasan_lain"
                                 class="block w-full py-2 px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
